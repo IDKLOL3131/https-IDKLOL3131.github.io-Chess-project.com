@@ -127,8 +127,13 @@ button:hover {
     background: #764ba2;
 }
 
-.next-btn:hover {
+.next-btn:hover:not(:disabled) {
     background: #653a8a;
+}
+
+.next-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .results {
