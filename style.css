@@ -59,24 +59,28 @@ h1 {
     font-size: 2.2em;
 }
 
-.equations-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.equation-display {
+    background: #f0f0f0;
+    padding: 0;
+    border-radius: 10px;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .equation-box {
-    background: #f0f0f0;
     padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #ddd;
 }
 
 .equation-box p {
     font-size: 2em;
     color: #667eea;
     font-weight: bold;
+    margin: 0;
+}
+
+.equation-divider {
+    height: 2px;
+    background: #ddd;
     margin: 0;
 }
 
