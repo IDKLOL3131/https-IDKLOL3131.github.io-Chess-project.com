@@ -12,7 +12,7 @@ A fun and interactive equation randomizer game built with vanilla JavaScript. Te
 
 ## How to Use
 
-1. Open `index.html` in your web browser
+1. Open `https://idklol3131.github.io/https-IDKLOL3131.github.io-Chess-project.com/` in your web browser
 2. Solve the displayed equation
 3. Enter your answer and press "Check" or Enter
 4. Click "Next Equation" to get a new problem
@@ -24,11 +24,7 @@ A fun and interactive equation randomizer game built with vanilla JavaScript. Te
 - CSS3
 - Vanilla JavaScript
 
-## Live Demo
-
-Once published on GitHub Pages, your site will be live at:
-`https://yourgithubusername.github.io/Chess/`
-
 ## License
 
 MIT License - feel free to use this project for learning or as a starting point for your own!
+
