@@ -34,41 +34,57 @@ body::before {
     to { filter: hue-rotate(360deg); }
 }
 
+/* Speed up the animation for faster color changes */
+body::before {
+    animation: hue 15s linear infinite;
+}
+
 .container {
     background: white;
-    padding: 40px;
+    padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     text-align: center;
-    max-width: 500px;
+    max-width: 600px;
     width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
     z-index: 1;
 }
 
 h1 {
     color: #333;
-    margin-bottom: 30px;
-    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-size: 2.2em;
 }
 
-.equation-display {
-    background: #f0f0f0;
-    padding: 30px;
-    border-radius: 10px;
+.equations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-#equation {
-    font-size: 3em;
+.equation-box {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+}
+
+.equation-box p {
+    font-size: 2em;
     color: #667eea;
     font-weight: bold;
+    margin: 0;
 }
 
 .input-section {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    justify-content: center;
 }
 
 input {
@@ -86,7 +102,7 @@ input:focus {
 }
 
 button {
-    padding: 12px 25px;
+    padding: 12px 30px;
     background: #667eea;
     color: white;
     border: none;
@@ -112,14 +128,62 @@ button:hover {
 }
 
 .results {
-    min-height: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #result {
     font-size: 1.3em;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.explanation-steps {
+    text-align: left;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.step {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.equation-step {
+    margin-left: 20px;
+    margin-bottom: 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.answer-box {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.3em;
+    color: #1976d2;
+    margin-bottom: 15px;
+    border: 2px solid #90caf9;
+}
+
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.numerator {
+    border-bottom: 1px solid #333;
+    padding: 0 5px;
+}
+
+.denominator {
+    padding: 0 5px;
 }
 
 /* Check button specific styling (light green) and disabled state */
@@ -127,6 +191,10 @@ button:hover {
     background: #baf1c8;
     color: #054a17;
     border: 2px solid rgba(5, 74, 23, 0.08);
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #check-btn:disabled {
