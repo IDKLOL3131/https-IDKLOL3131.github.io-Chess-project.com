@@ -13,6 +13,27 @@ body {
     align-items: center;
 }
 
+/* Animated rainbow background using a full-viewport pseudo-element */
+body {
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, #ff004c, #ff7a00, #ffde00, #00d166, #00bcd4, #2b3cff, #9b00ff);
+    background-size: 400% 400%;
+    filter: hue-rotate(0deg);
+    animation: hue 40s linear infinite;
+}
+
+@keyframes hue {
+    to { filter: hue-rotate(360deg); }
+}
+
 .container {
     background: white;
     padding: 40px;
@@ -21,6 +42,8 @@ body {
     text-align: center;
     max-width: 500px;
     width: 90%;
+    position: relative;
+    z-index: 1;
 }
 
 h1 {
@@ -97,6 +120,18 @@ button:hover {
     font-size: 1.3em;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+/* Check button specific styling (light green) and disabled state */
+#check-btn {
+    background: #baf1c8;
+    color: #054a17;
+    border: 2px solid rgba(5, 74, 23, 0.08);
+}
+
+#check-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .correct {
