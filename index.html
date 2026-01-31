@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equation Randomizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Equation Randomizer</h1>
+        <div class="equation-display">
+            <p id="equation">5 + 3 = ?</p>
+        </div>
+        <div class="input-section">
+            <input type="number" id="answer" placeholder="Enter your answer" autocomplete="off">
+            <button onclick="checkAnswer()">Check</button>
+        </div>
+        <div class="results">
+            <p id="result"></p>
+            <p id="score">Score: 0/0</p>
+        </div>
+        <button onclick="generateEquation()" class="next-btn">Next Equation</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
