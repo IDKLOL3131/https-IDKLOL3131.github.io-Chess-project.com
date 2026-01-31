@@ -57,9 +57,11 @@ function generateEquation() {
     const ax = document.getElementById('answerX');
     const ay = document.getElementById('answerY');
     const btn = document.getElementById('check-btn');
+    const nextBtn = document.querySelector('.next-btn');
     if (ax) { ax.value = ''; ax.disabled = false; }
     if (ay) { ay.value = ''; ay.disabled = false; }
     if (btn) { btn.disabled = false; }
+    if (nextBtn) { nextBtn.disabled = true; }
     document.getElementById('result').textContent = '';
     document.getElementById('explanation').innerHTML = '';
     document.getElementById('answer-box').innerHTML = '';
@@ -144,6 +146,10 @@ function checkAnswer() {
     ax.disabled = true;
     ay.disabled = true;
     if (btn) btn.disabled = true;
+    
+    // Enable next button
+    const nextBtn = document.querySelector('.next-btn');
+    if (nextBtn) nextBtn.disabled = false;
 }
 
 // Allow Enter key to check answer
