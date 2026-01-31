@@ -140,7 +140,8 @@ function checkAnswer() {
         answerBoxElement.innerHTML = `<strong>Answer:</strong> x = ${correctX}, y = ${correctY}`;
     }
 
-    document.getElementById('score').textContent = `Score: ${correctAnswers}/${totalQuestions}`;
+    const percentage = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
+    document.getElementById('score').textContent = `Score: ${correctAnswers}/${totalQuestions} (${percentage}%)`;
 
     // Disable inputs and check button until next equation
     ax.disabled = true;
