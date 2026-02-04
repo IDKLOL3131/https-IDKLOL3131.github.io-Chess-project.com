@@ -49,14 +49,26 @@ body::before {
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
-    position: relative;
-    z-index: 1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
 }
 
 h1 {
     color: #333;
-    margin-bottom: 20px;
-    font-size: 2.2em;
+    margin: 0;
+    font-size: 1.8em;
 }
 
 .equation-display {
