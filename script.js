@@ -112,22 +112,25 @@ function checkAnswer() {
         const formatDiv = (num, denom) => `<span class="fraction"><span class="numerator">${num}</span><span class="denominator">${denom}</span></span>`;
         
         let steps = '<div class="explanation-steps">';
-        steps += '<div class="step"><strong>Step 1:</strong> Multiply first equation by ' + Math.abs(d) + '</div>';
-        steps += `<div class="equation-step">${formatMult(d, '(' + buildEq(a, b, c) + ')')} = ${a*d}x ${b*d >= 0 ? '+' : '−'} ${Math.abs(b*d)}y = ${c*d}</div>`;
+        steps += '<div class="step"><strong>Step 1:</strong> Both equations have to be standard form (ax+by=c)</div>';
+        steps += `<div class="equation-step">${buildEq(a, b, c)}</div>`;
+        steps += `<div class="equation-step">${buildEq(d, e, f)}</div>`;
         
-        steps += '<div class="step"><strong>Step 2:</strong> Multiply second equation by ' + Math.abs(a) + '</div>';
-        steps += `<div class="equation-step">${formatMult(a, '(' + buildEq(d, e, f) + ')')} = ${d*a}x ${e*a >= 0 ? '+' : '−'} ${Math.abs(e*a)}y = ${f*a}</div>`;
+        steps += '<div class="step"><strong>Step 2:</strong> Eliminate one variable (the same coefficient)</div>';
+        steps += '<div class="equation-step">Multiply first equation by ' + Math.abs(d) + ': ' + `${formatMult(d, '(' + buildEq(a, b, c) + ')')} → ${a*d}x ${b*d >= 0 ? '+' : '−'} ${Math.abs(b*d)}y = ${c*d}</div>`;
+        steps += '<div class="equation-step">Multiply second equation by ' + Math.abs(a) + ': ' + `${formatMult(a, '(' + buildEq(d, e, f) + ')')} → ${d*a}x ${e*a >= 0 ? '+' : '−'} ${Math.abs(e*a)}y = ${f*a}</div>`;
         
-        steps += '<div class="step"><strong>Step 3:</strong> Subtract the two equations to eliminate x</div>';
+        steps += '<div class="step"><strong>Step 3:</strong> Add both equations together</div>';
         const yCoef = e*a - b*d;
         const yResult = f*a - c*d;
-        steps += `<div class="equation-step">(${e*a}y ${b*d >= 0 ? '−' : '+'} ${Math.abs(b*d)}y) = ${f*a} ${c*d >= 0 ? '−' : '+'} ${Math.abs(c*d)}</div>`;
+        steps += `<div class="equation-step">(${e*a}y) ${b*d >= 0 ? '−' : '+'} (${Math.abs(b*d)}y) = ${f*a} ${c*d >= 0 ? '−' : '+'} ${Math.abs(c*d)}</div>`;
         steps += `<div class="equation-step">${yCoef}y = ${yResult}</div>`;
         
-        steps += '<div class="step"><strong>Step 4:</strong> Solve for y</div>';
+        steps += '<div class="step"><strong>Step 4:</strong> Solve for the remaining variable (one of your answer)</div>';
         steps += `<div class="equation-step">y = ${formatDiv(yResult, yCoef)} = ${yVal}</div>`;
         
-        steps += '<div class="step"><strong>Step 5:</strong> Substitute y back into first equation to find x</div>';
+        steps += '<div class="step"><strong>Step 5:</strong> Substitute your answer from step 4 & solve for the variable</div>';
+        steps += `<div class="equation-step">Substitute y = ${yVal} into first equation:</div>`;
         steps += `<div class="equation-step">${a}x ${b >= 0 ? '+' : '−'} ${Math.abs(b)} · ${yVal} = ${c}</div>`;
         const leftSide = b * yVal;
         steps += `<div class="equation-step">${a}x ${leftSide >= 0 ? '+' : '−'} ${Math.abs(leftSide)} = ${c}</div>`;
