@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Chess board background -->
+  <rect width="200" height="200" fill="#e8e8e8" rx="10"/>
+  
+  <!-- Chess board squares (4x4 pattern) -->
+  <!-- Row 1 -->
+  <rect x="0" y="0" width="50" height="50" fill="#4a4a4a" rx="10" ry="10"/>
+  <rect x="100" y="0" width="50" height="50" fill="#4a4a4a"/>
+  <rect x="150" y="0" width="50" height="50" rx="10" ry="10"/>
+  
+  <!-- Row 2 -->
+  <rect x="50" y="50" width="50" height="50" fill="#4a4a4a"/>
+  <rect x="150" y="50" width="50" height="50" fill="#4a4a4a"/>
+  
+  <!-- Row 3 -->
+  <rect x="0" y="100" width="50" height="50" fill="#4a4a4a"/>
+  <rect x="100" y="100" width="50" height="50" fill="#4a4a4a"/>
+  
+  <!-- Row 4 -->
+  <rect x="0" y="150" width="50" height="50" fill="#4a4a4a" rx="10" ry="10"/>
+  <rect x="50" y="150" width="50" height="50" fill="#4a4a4a"/>
+  <rect x="150" y="150" width="50" height="50" fill="#4a4a4a" rx="10" ry="10"/>
+  
+  <!-- Central circle for question mark -->
+  <circle cx="100" cy="100" r="55" fill="rgba(255, 255, 255, 0.95)" stroke="#333" stroke-width="3"/>
+  
+  <!-- Question mark -->
+  <text x="100" y="125" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#333" text-anchor="middle">?</text>
+</svg>
