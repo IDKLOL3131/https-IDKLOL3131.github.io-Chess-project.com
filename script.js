@@ -105,7 +105,7 @@ function checkAnswer() {
         // Build a clear step-by-step elimination explanation
         const { a, b, c, d, e, f, det } = currentSystem;
         const yVal = (f * a - c * d) / det;
-        const xVal = (c - b * yVal) / a || (f - e * yVal) / d;
+        const xVal = a !== 0 ? (c - b * yVal) / a : (f - e * yVal) / d;
         
         // Format numbers with multiplication dot and division as fraction
         const formatMult = (num1, num2) => `${num1} · ${num2}`;
