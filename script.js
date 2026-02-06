@@ -117,10 +117,14 @@ function checkAnswer() {
         steps += `<div class="equation-step">${buildEq(d, e, f)}</div>`;
         
         steps += '<div class="step"><strong>Step 2:</strong> Eliminate one variable (make matching coefficients)</div>';
-        steps += '<div class="equation-step"><strong>Equation 1:</strong> Multiply by ' + Math.abs(d) + '</div>';
+        steps += '<div class="equation-group">';
+        steps += '<div class="equation-label">Equation 1: multiply by ' + Math.abs(d) + '</div>';
         steps += '<div class="equation-step">' + `${formatMult(d, '(' + buildEq(a, b, c) + ')')} → ${a*d}x ${b*d >= 0 ? '+' : '−'} ${Math.abs(b*d)}y = ${c*d}` + '</div>';
-        steps += '<div class="equation-step"><strong>Equation 2:</strong> Multiply by ' + Math.abs(a) + '</div>';
+        steps += '</div>';
+        steps += '<div class="equation-group">';
+        steps += '<div class="equation-label">Equation 2: multiply by ' + Math.abs(a) + '</div>';
         steps += '<div class="equation-step">' + `${formatMult(a, '(' + buildEq(d, e, f) + ')')} → ${d*a}x ${e*a >= 0 ? '+' : '−'} ${Math.abs(e*a)}y = ${f*a}` + '</div>';
+        steps += '</div>';
         
         steps += '<div class="step"><strong>Step 3:</strong> Add both equations together</div>';
         const yCoef = e*a - b*d;
@@ -168,4 +172,3 @@ document.addEventListener('keydown', function(event) {
 
 // Generate first system on load
 window.addEventListener('load', generateEquation);
-
