@@ -1,29 +1,111 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <!-- Chess board background -->
-  <rect width="200" height="200" fill="#e8e8e8" rx="10"/>
-  
-  <!-- Chess board squares (4x4 pattern) -->
+  <!-- 8x8 chess board pattern -->
   <!-- Row 1 -->
-  <rect x="0" y="0" width="50" height="50" fill="#4a4a4a" rx="10" ry="10"/>
-  <rect x="100" y="0" width="50" height="50" fill="#4a4a4a"/>
-  <rect x="150" y="0" width="50" height="50" rx="10" ry="10"/>
-  
+  <rect x="0" y="0" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="50" y="0" width="50" height="50" fill="#b58863"/>
+  <rect x="100" y="0" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="150" y="0" width="50" height="50" fill="#b58863"/>
+  <rect x="200" y="0" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="250" y="0" width="50" height="50" fill="#b58863"/>
+  <rect x="300" y="0" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="350" y="0" width="50" height="50" fill="#b58863"/>
   <!-- Row 2 -->
-  <rect x="50" y="50" width="50" height="50" fill="#4a4a4a"/>
-  <rect x="150" y="50" width="50" height="50" fill="#4a4a4a"/>
-  
+  <rect x="0" y="50" width="50" height="50" fill="#b58863"/>
+  <rect x="50" y="50" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="100" y="50" width="50" height="50" fill="#b58863"/>
+  <rect x="150" y="50" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="200" y="50" width="50" height="50" fill="#b58863"/>
+  <rect x="250" y="50" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="300" y="50" width="50" height="50" fill="#b58863"/>
+  <rect x="350" y="50" width="50" height="50" fill="#f0d9b5"/>
   <!-- Row 3 -->
-  <rect x="0" y="100" width="50" height="50" fill="#4a4a4a"/>
-  <rect x="100" y="100" width="50" height="50" fill="#4a4a4a"/>
-  
+  <rect x="0" y="100" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="50" y="100" width="50" height="50" fill="#b58863"/>
+  <rect x="100" y="100" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="150" y="100" width="50" height="50" fill="#b58863"/>
+  <rect x="200" y="100" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="250" y="100" width="50" height="50" fill="#b58863"/>
+  <rect x="300" y="100" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="350" y="100" width="50" height="50" fill="#b58863"/>
   <!-- Row 4 -->
-  <rect x="0" y="150" width="50" height="50" fill="#4a4a4a" rx="10" ry="10"/>
-  <rect x="50" y="150" width="50" height="50" fill="#4a4a4a"/>
-  <rect x="150" y="150" width="50" height="50" fill="#4a4a4a" rx="10" ry="10"/>
-  
-  <!-- Central circle for question mark -->
-  <circle cx="100" cy="100" r="55" fill="rgba(255, 255, 255, 0.95)" stroke="#333" stroke-width="3"/>
-  
-  <!-- Question mark -->
-  <text x="100" y="125" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#333" text-anchor="middle">?</text>
+  <rect x="0" y="150" width="50" height="50" fill="#b58863"/>
+  <rect x="50" y="150" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="100" y="150" width="50" height="50" fill="#b58863"/>
+  <rect x="150" y="150" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="200" y="150" width="50" height="50" fill="#b58863"/>
+  <rect x="250" y="150" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="300" y="150" width="50" height="50" fill="#b58863"/>
+  <rect x="350" y="150" width="50" height="50" fill="#f0d9b5"/>
+  <!-- Row 5 -->
+  <rect x="0" y="200" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="50" y="200" width="50" height="50" fill="#b58863"/>
+  <rect x="100" y="200" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="150" y="200" width="50" height="50" fill="#b58863"/>
+  <rect x="200" y="200" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="250" y="200" width="50" height="50" fill="#b58863"/>
+  <rect x="300" y="200" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="350" y="200" width="50" height="50" fill="#b58863"/>
+  <!-- Row 6 -->
+  <rect x="0" y="250" width="50" height="50" fill="#b58863"/>
+  <rect x="50" y="250" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="100" y="250" width="50" height="50" fill="#b58863"/>
+  <rect x="150" y="250" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="200" y="250" width="50" height="50" fill="#b58863"/>
+  <rect x="250" y="250" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="300" y="250" width="50" height="50" fill="#b58863"/>
+  <rect x="350" y="250" width="50" height="50" fill="#f0d9b5"/>
+  <!-- Row 7 -->
+  <rect x="0" y="300" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="50" y="300" width="50" height="50" fill="#b58863"/>
+  <rect x="100" y="300" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="150" y="300" width="50" height="50" fill="#b58863"/>
+  <rect x="200" y="300" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="250" y="300" width="50" height="50" fill="#b58863"/>
+  <rect x="300" y="300" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="350" y="300" width="50" height="50" fill="#b58863"/>
+  <!-- Row 8 -->
+  <rect x="0" y="350" width="50" height="50" fill="#b58863"/>
+  <rect x="50" y="350" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="100" y="350" width="50" height="50" fill="#b58863"/>
+  <rect x="150" y="350" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="200" y="350" width="50" height="50" fill="#b58863"/>
+  <rect x="250" y="350" width="50" height="50" fill="#f0d9b5"/>
+  <rect x="300" y="350" width="50" height="50" fill="#b58863"/>
+  <rect x="350" y="350" width="50" height="50" fill="#f0d9b5"/>
+  <!-- Chess Pieces -->
+  <text x="25" y="390" font-family="Arial, sans-serif" font-size="40" fill="#333" text-anchor="middle">♜</text>
+  <text x="75" y="390" font-family="Arial, sans-serif" font-size="40" fill="#333" text-anchor="middle">♞</text>
+  <text x="125" y="390" font-family="Arial, sans-serif" font-size="40" fill="#333" text-anchor="middle">♝</text>
+  <text x="175" y="390" font-family="Arial, sans-serif" font-size="40" fill="#333" text-anchor="middle">♛</text>
+  <text x="225" y="390" font-family="Arial, sans-serif" font-size="40" fill="#333" text-anchor="middle">♚</text>
+  <text x="275" y="390" font-family="Arial, sans-serif" font-size="40" fill="#333" text-anchor="middle">♝</text>
+  <text x="325" y="390" font-family="Arial, sans-serif" font-size="40" fill="#333" text-anchor="middle">♞</text>
+  <text x="375" y="390" font-family="Arial, sans-serif" font-size="40" fill="#333" text-anchor="middle">♜</text>
+  <text x="25" y="340" font-family="Arial, sans-serif" font-size="36" fill="#333" text-anchor="middle">♟</text>
+  <text x="75" y="340" font-family="Arial, sans-serif" font-size="36" fill="#333" text-anchor="middle">♟</text>
+  <text x="125" y="340" font-family="Arial, sans-serif" font-size="36" fill="#333" text-anchor="middle">♟</text>
+  <text x="175" y="340" font-family="Arial, sans-serif" font-size="36" fill="#333" text-anchor="middle">♟</text>
+  <text x="225" y="340" font-family="Arial, sans-serif" font-size="36" fill="#333" text-anchor="middle">♟</text>
+  <text x="275" y="340" font-family="Arial, sans-serif" font-size="36" fill="#333" text-anchor="middle">♟</text>
+  <text x="325" y="340" font-family="Arial, sans-serif" font-size="36" fill="#333" text-anchor="middle">♟</text>
+  <text x="375" y="340" font-family="Arial, sans-serif" font-size="36" fill="#333" text-anchor="middle">♟</text>
+  <text x="25" y="25" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♖</text>
+  <text x="75" y="25" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♘</text>
+  <text x="125" y="25" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♗</text>
+  <text x="175" y="25" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♕</text>
+  <text x="225" y="25" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♔</text>
+  <text x="275" y="25" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♗</text>
+  <text x="325" y="25" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♘</text>
+  <text x="375" y="25" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♖</text>
+  <text x="25" y="75" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♙</text>
+  <text x="75" y="75" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♙</text>
+  <text x="125" y="75" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♙</text>
+  <text x="175" y="75" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♙</text>
+  <text x="225" y="75" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♙</text>
+  <text x="275" y="75" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♙</text>
+  <text x="325" y="75" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♙</text>
+  <text x="375" y="75" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" dominant-baseline="middle" stroke="#333" stroke-width="1">♙</text>
+  <circle cx="200" cy="200" r="100" fill="none" stroke="none"/>
+  <text x="200" y="240" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="#333" text-anchor="middle">?</text>
 </svg>
