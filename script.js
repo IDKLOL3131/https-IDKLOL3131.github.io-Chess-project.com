@@ -121,9 +121,7 @@ function checkAnswer() {
         let eliminate = 'x';
         if (!canEliminateX && canEliminateY) eliminate = 'y';
         else if (canEliminateX && canEliminateY) {
-            const costX = Math.abs(d) + Math.abs(a);
-            const costY = Math.abs(e) + Math.abs(b);
-            eliminate = costY < costX ? 'y' : 'x';
+            eliminate = Math.random() < 0.5 ? 'x' : 'y';
         }
 
         const m1 = eliminate === 'x' ? d : e;
