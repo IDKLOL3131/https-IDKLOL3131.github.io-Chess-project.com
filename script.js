@@ -30,21 +30,30 @@ function buildEq(a, b, c) {
 function generateEquation() {
     // Generate a system with integer solution (x0, y0)
     const randInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-    const x0 = randInt(-10, 10);
-    const y0 = randInt(-10, 10);
+    const x0 = randInt(-5, 5);
+    const y0 = randInt(-5, 5);
     // choose non-zero coefficients and ensure determinant != 0
     let a, b, d, e;
     do {
-        a = randInt(-10, 10) || 1;
-        b = randInt(-10, 10);
-        d = randInt(-10, 10) || 1;
-        e = randInt(-10, 10);
+        a = randInt(-5, 5) || 1;
+        b = randInt(-5, 5);
+        d = randInt(-5, 5) || 1;
+        e = randInt(-5, 5);
     } while ((a * e - b * d) === 0);
 
     const c = a * x0 + b * y0;
     const f = d * x0 + e * y0;
 
-    currentSystem = { a, b, c, d, e, f, x: x0, y: y0, det: a * e - b * d };
+    // Decide elimination variable now to keep it consistent
+    const canEliminateX = a !== 0 && d !== 0;
+    const canEliminateY = b !== 0 && e !== 0;
+    let eliminate = 'x';
+    if (!canEliminateX && canEliminateY) eliminate = 'y';
+    else if (canEliminateX && canEliminateY) {
+        eliminate = Math.random() < 0.5 ? 'x' : 'y';
+    }
+
+    currentSystem = { a, b, c, d, e, f, x: x0, y: y0, det: a * e - b * d, eliminate };
 
     // Build readable equation strings
     const eq1 = `${a === 0 ? "" : (a === -1 ? "-" : a === 1 ? "" : a)}x ${b < 0 ? "− " + Math.abs(b) + "y" : (b === 0 ? "" : "+ " + b + "y")} = ${c}`.replace(/\s+/g, ' ').trim();
@@ -116,14 +125,7 @@ function checkAnswer() {
         steps += `<div class="equation-step">${buildEq(a, b, c)}</div>`;
         steps += `<div class="equation-step">${buildEq(d, e, f)}</div>`;
         
-        const canEliminateX = a !== 0 && d !== 0;
-        const canEliminateY = b !== 0 && e !== 0;
-        let eliminate = 'x';
-        if (!canEliminateX && canEliminateY) eliminate = 'y';
-        else if (canEliminateX && canEliminateY) {
-            eliminate = Math.random() < 0.5 ? 'x' : 'y';
-        }
-
+        const eliminate = currentSystem.eliminate;
         const m1 = eliminate === 'x' ? d : e;
         const m2 = eliminate === 'x' ? a : b;
 
@@ -204,3 +206,4 @@ document.addEventListener('keydown', function(event) {
 
 // Generate first system on load
 window.addEventListener('load', generateEquation);
+
