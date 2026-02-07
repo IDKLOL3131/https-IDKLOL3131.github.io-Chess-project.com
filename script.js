@@ -116,33 +116,66 @@ function checkAnswer() {
         steps += `<div class="equation-step">${buildEq(a, b, c)}</div>`;
         steps += `<div class="equation-step">${buildEq(d, e, f)}</div>`;
         
+        const canEliminateX = a !== 0 && d !== 0;
+        const canEliminateY = b !== 0 && e !== 0;
+        let eliminate = 'x';
+        if (!canEliminateX && canEliminateY) eliminate = 'y';
+        else if (canEliminateX && canEliminateY) {
+            const costX = Math.abs(d) + Math.abs(a);
+            const costY = Math.abs(e) + Math.abs(b);
+            eliminate = costY < costX ? 'y' : 'x';
+        }
+
+        const m1 = eliminate === 'x' ? d : e;
+        const m2 = eliminate === 'x' ? a : b;
+
         steps += '<div class="step"><strong>Step 2:</strong> Eliminate one variable (make matching coefficients)</div>';
         steps += '<div class="equation-group">';
-        steps += '<div class="equation-label">Equation 1: multiply by ' + Math.abs(d) + '</div>';
-        steps += '<div class="equation-step">' + `${formatMult(d, '(' + buildEq(a, b, c) + ')')} → ${a*d}x ${b*d >= 0 ? '+' : '−'} ${Math.abs(b*d)}y = ${c*d}` + '</div>';
+        steps += '<div class="equation-label">Equation 1: multiply by ' + Math.abs(m1) + '</div>';
+        steps += '<div class="equation-step">' + `${formatMult(m1, '(' + buildEq(a, b, c) + ')')} → ${a*m1}x ${b*m1 >= 0 ? '+' : '−'} ${Math.abs(b*m1)}y = ${c*m1}` + '</div>';
         steps += '</div>';
         steps += '<div class="equation-group">';
-        steps += '<div class="equation-label">Equation 2: multiply by ' + Math.abs(a) + '</div>';
-        steps += '<div class="equation-step">' + `${formatMult(a, '(' + buildEq(d, e, f) + ')')} → ${d*a}x ${e*a >= 0 ? '+' : '−'} ${Math.abs(e*a)}y = ${f*a}` + '</div>';
+        steps += '<div class="equation-label">Equation 2: multiply by ' + Math.abs(m2) + '</div>';
+        steps += '<div class="equation-step">' + `${formatMult(m2, '(' + buildEq(d, e, f) + ')')} → ${d*m2}x ${e*m2 >= 0 ? '+' : '−'} ${Math.abs(e*m2)}y = ${f*m2}` + '</div>';
         steps += '</div>';
         
-        steps += '<div class="step"><strong>Step 3:</strong> Add both equations together (x cancels out)</div>';
-        const yCoef = e*a - b*d;
-        const yResult = f*a - c*d;
-        steps += `<div class="equation-step">(${a*d}x) − (${d*a}x) = 0 (x cancels)</div>`;
-        steps += `<div class="equation-step">(${e*a}y) ${b*d >= 0 ? '−' : '+'} (${Math.abs(b*d)}y) = ${f*a} ${c*d >= 0 ? '−' : '+'} ${Math.abs(c*d)}</div>`;
-        steps += `<div class="equation-step">${yCoef}y = ${yResult}</div>`;
-        
-        steps += '<div class="step"><strong>Step 4:</strong> Solve for the remaining variable (one of your answer)</div>';
-        steps += `<div class="equation-step">y = ${formatDiv(yResult, yCoef)} = ${yVal}</div>`;
-        
-        steps += '<div class="step"><strong>Step 5:</strong> Substitute your answer from step 4 & solve for the variable</div>';
-        steps += `<div class="equation-step">Substitute y = ${yVal} into first equation:</div>`;
-        steps += `<div class="equation-step">${a}x ${b >= 0 ? '+' : '−'} ${Math.abs(b)} · ${yVal} = ${c}</div>`;
-        const leftSide = b * yVal;
-        steps += `<div class="equation-step">${a}x ${leftSide >= 0 ? '+' : '−'} ${Math.abs(leftSide)} = ${c}</div>`;
-        steps += `<div class="equation-step">${a}x = ${c - leftSide}</div>`;
-        steps += `<div class="equation-step">x = ${formatDiv(c - leftSide, a)} = ${xVal}</div>`;
+        steps += `<div class="step"><strong>Step 3:</strong> Subtract the equations (${eliminate} cancels out)</div>`;
+
+        if (eliminate === 'x') {
+            const yCoef = b*m1 - e*m2;
+            const yResult = c*m1 - f*m2;
+            steps += `<div class="equation-step">(${a*m1}x) − (${d*m2}x) = 0 (x cancels)</div>`;
+            steps += `<div class="equation-step">(${b*m1}y) ${e*m2 >= 0 ? '−' : '+'} (${Math.abs(e*m2)}y) = ${c*m1} ${f*m2 >= 0 ? '−' : '+'} ${Math.abs(f*m2)}</div>`;
+            steps += `<div class="equation-step">${yCoef}y = ${yResult}</div>`;
+
+            steps += '<div class="step"><strong>Step 4:</strong> Solve for y</div>';
+            steps += `<div class="equation-step">y = ${formatDiv(yResult, yCoef)} = ${yVal}</div>`;
+
+            steps += '<div class="step"><strong>Step 5:</strong> Substitute y and solve for x</div>';
+            steps += `<div class="equation-step">Substitute y = ${yVal} into first equation:</div>`;
+            steps += `<div class="equation-step">${a}x ${b >= 0 ? '+' : '−'} ${Math.abs(b)} · ${yVal} = ${c}</div>`;
+            const leftSide = b * yVal;
+            steps += `<div class="equation-step">${a}x ${leftSide >= 0 ? '+' : '−'} ${Math.abs(leftSide)} = ${c}</div>`;
+            steps += `<div class="equation-step">${a}x = ${c - leftSide}</div>`;
+            steps += `<div class="equation-step">x = ${formatDiv(c - leftSide, a)} = ${xVal}</div>`;
+        } else {
+            const xCoef = a*m1 - d*m2;
+            const xResult = c*m1 - f*m2;
+            steps += `<div class="equation-step">(${b*m1}y) − (${e*m2}y) = 0 (y cancels)</div>`;
+            steps += `<div class="equation-step">(${a*m1}x) ${d*m2 >= 0 ? '−' : '+'} (${Math.abs(d*m2)}x) = ${c*m1} ${f*m2 >= 0 ? '−' : '+'} ${Math.abs(f*m2)}</div>`;
+            steps += `<div class="equation-step">${xCoef}x = ${xResult}</div>`;
+
+            steps += '<div class="step"><strong>Step 4:</strong> Solve for x</div>';
+            steps += `<div class="equation-step">x = ${formatDiv(xResult, xCoef)} = ${xVal}</div>`;
+
+            steps += '<div class="step"><strong>Step 5:</strong> Substitute x and solve for y</div>';
+            steps += `<div class="equation-step">Substitute x = ${xVal} into first equation:</div>`;
+            steps += `<div class="equation-step">${b}y ${a >= 0 ? '+' : '−'} ${Math.abs(a)} · ${xVal} = ${c}</div>`;
+            const leftSide = a * xVal;
+            steps += `<div class="equation-step">${b}y ${leftSide >= 0 ? '−' : '+'} ${Math.abs(leftSide)} = ${c}</div>`;
+            steps += `<div class="equation-step">${b}y = ${c - leftSide}</div>`;
+            steps += `<div class="equation-step">y = ${formatDiv(c - leftSide, b)} = ${yVal}</div>`;
+        }
         
         steps += '</div>';
         explanationElement.innerHTML = steps;
