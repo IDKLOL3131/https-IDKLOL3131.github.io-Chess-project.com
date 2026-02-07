@@ -126,9 +126,10 @@ function checkAnswer() {
         steps += '<div class="equation-step">' + `${formatMult(a, '(' + buildEq(d, e, f) + ')')} → ${d*a}x ${e*a >= 0 ? '+' : '−'} ${Math.abs(e*a)}y = ${f*a}` + '</div>';
         steps += '</div>';
         
-        steps += '<div class="step"><strong>Step 3:</strong> Add both equations together</div>';
+        steps += '<div class="step"><strong>Step 3:</strong> Add both equations together (x cancels out)</div>';
         const yCoef = e*a - b*d;
         const yResult = f*a - c*d;
+        steps += `<div class="equation-step">(${a*d}x) − (${d*a}x) = 0 (x cancels)</div>`;
         steps += `<div class="equation-step">(${e*a}y) ${b*d >= 0 ? '−' : '+'} (${Math.abs(b*d)}y) = ${f*a} ${c*d >= 0 ? '−' : '+'} ${Math.abs(c*d)}</div>`;
         steps += `<div class="equation-step">${yCoef}y = ${yResult}</div>`;
         
